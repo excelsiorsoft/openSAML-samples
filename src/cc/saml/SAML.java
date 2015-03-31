@@ -14,9 +14,9 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.TransformerException;
 
 import org.joda.time.DateTime;
-
 import org.opensaml.DefaultBootstrap;
 import org.opensaml.common.impl.SecureRandomIdentifierGenerator;
+import org.opensaml.saml2.core.SubjectLocality;
 import org.opensaml.saml2.core.Assertion;
 import org.opensaml.saml2.core.Attribute;
 import org.opensaml.saml2.core.AttributeStatement;
@@ -43,7 +43,6 @@ import org.opensaml.xml.io.MarshallingException;
 import org.opensaml.xml.io.Unmarshaller;
 import org.opensaml.xml.io.UnmarshallingException;
 import org.opensaml.xml.schema.XSAny;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
@@ -427,6 +426,8 @@ public class SAML
 
         AuthnStatement authnStatement = create 
             (AuthnStatement.class, AuthnStatement.DEFAULT_ELEMENT_NAME);
+        
+ 
         authnStatement.setAuthnContext (authnContext);
         
         assertion.getStatements ().add (authnStatement);
